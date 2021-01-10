@@ -1,4 +1,4 @@
-package LearnBF;
+package pl.bartek_ficek;
 
 public class Main {
 
