@@ -9,17 +9,34 @@ public class FizzBuzz {
 
     public static void main(String[] args) {
 
-        for (int i = 1; i <= 100; i++) {
-            if (i % 3==0 && i % 15 !=0) {
+        printFizzBuzz2(100);
+    }
+
+    public static void printFizzBuzz1(int n) {
+        for (int i = 1; i <= n; i++) {
+            if (i % 3 == 0 && i % 15 != 0) {
                 STDOUT.info("\nFizz");
-            }
-            else if (i % 5==0 && i % 15 !=0) {
+            } else if (i % 5 == 0 && i % 15 != 0) {
                 STDOUT.info("\nBuzz");
-            }
-            else if (i % 15==0) {
+            } else if (i % 15 == 0) {
                 STDOUT.info("\nFizzBuzz");
+            } else STDOUT.info("\n{}", i);
+        }
+    }
+
+    public static void printFizzBuzz2(int n) {
+        for (int i = 1; i <= n; i++) {
+            if (i % 15 == 0) {
+                STDOUT.info("\nFizzBuzz");
+                continue;
             }
-            else STDOUT.info("\n{}",i);
+            if (i % 5 == 0) {
+                STDOUT.info("\nBuzz");
+                continue;
+            }
+            if (i % 3 == 0) {
+                STDOUT.info("\nFizz");
+            } else STDOUT.info("\n{}", i);
         }
     }
 }
