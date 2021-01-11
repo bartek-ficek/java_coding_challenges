@@ -10,7 +10,8 @@ public class TwoSum {
     private static final Logger STDOUT = LoggerFactory.getLogger("CONSOLE_OUT");
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(twoSum(new int[]{3,3}, 6)));
+        String result = Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9));
+        STDOUT.info("\n{}", result);
     }
 
     public static int[] twoSum(int[] nums, int target) {
