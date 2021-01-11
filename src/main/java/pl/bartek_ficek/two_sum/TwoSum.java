@@ -4,17 +4,25 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSum {
 
     private static final Logger STDOUT = LoggerFactory.getLogger("CONSOLE_OUT");
 
     public static void main(String[] args) {
-        String result = Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9));
-        STDOUT.info("\n{}", result);
+
+        int[] numbers = new int[]{2, 7, 11, 15};
+        int target = 9;
+
+        String result1 = Arrays.toString(getTwoSumFirstWay(numbers, target));
+        String result2 = Arrays.toString(getTwoSumSecondWay(numbers, target));
+        STDOUT.info("\n{}", result1);
+        STDOUT.info("\n{}", result2);
     }
 
-    public static int[] twoSum(int[] nums, int target) {
+    static int[] getTwoSumFirstWay(int[] nums, int target) {
 
         int[] output = new int[2];
         //Labels are not commonly used (disadvised)
@@ -30,4 +38,20 @@ public class TwoSum {
         }
         return output;
     }
+
+    static int[] getTwoSumSecondWay(int[] nums, int target) {
+
+        Map<Integer, Integer> checkedNums = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int delta = target - nums[i];
+            if (checkedNums.containsKey(delta)) {
+                return new int[]{checkedNums.get(delta), i};
+            }
+            checkedNums.put(nums[i], i);
+        }
+        return new int[]{-1, -1};
+    }
+
+
 }
