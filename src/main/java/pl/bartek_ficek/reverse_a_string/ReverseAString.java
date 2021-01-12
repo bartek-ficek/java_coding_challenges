@@ -12,8 +12,10 @@ public class ReverseAString {
         String givenString = "example";
         String reversedString1 = reverseStringWay1(givenString);
         String reversedString2 = reverseStringWay2(givenString);
-        STDOUT.info("\n{}\n",reversedString1);
-        STDOUT.info(reversedString2);
+        String reversedString3 = reverseStringWay3(givenString);
+        STDOUT.info("\n{}", reversedString1);
+        STDOUT.info("\n{}", reversedString2);
+        STDOUT.info("\n{}\n", reversedString3);
     }
 
     static String reverseStringWay1(String string) {
@@ -29,4 +31,13 @@ public class ReverseAString {
         }
         return String.valueOf(reversedChars);
     }
+
+    static String reverseStringWay3(String string) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = string.length() - 1; i >= 0; i--) {
+            stringBuilder.append(string.charAt(i));
+        }
+        return stringBuilder.toString();
+    }
+
 }
