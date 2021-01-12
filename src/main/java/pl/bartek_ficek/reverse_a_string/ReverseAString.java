@@ -17,9 +17,7 @@ public class ReverseAString {
     }
 
     static String reverseStringWay1(String string) {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(string);
-        return stringBuilder.reverse().toString();
+        return new StringBuilder(string).reverse().toString();
     }
 
     static String reverseStringWay2(String string) {
