@@ -11,12 +11,24 @@ public class ReverseAString {
 
         String givenString = "example";
         String reversedString1 = reverseStringWay1(givenString);
-        STDOUT.info(reversedString1);
+        String reversedString2 = reverseStringWay2(givenString);
+        STDOUT.info("\n{}\n",reversedString1);
+        STDOUT.info(reversedString2);
     }
 
     static String reverseStringWay1(String string) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(string);
         return stringBuilder.reverse().toString();
+    }
+
+    static String reverseStringWay2(String string) {
+        int length = string.length();
+        char[] stringAsChars = string.toCharArray();
+        char[] reversedChars = new char[length];
+        for (int i = length - 1; i >= 0; i--) {
+            reversedChars[length - 1 - i] = stringAsChars[i];
+        }
+        return String.valueOf(reversedChars);
     }
 }
