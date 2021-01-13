@@ -13,16 +13,19 @@ public class TwoSum {
 
     public static void main(String[] args) {
 
-        int[] numbers = new int[]{2, 7, 11, 15};
+        int[] numbers = new int[]{2, 8, 11, 15};
         int target = 9;
-
-        String result1 = Arrays.toString(getTwoSumFirstWay(numbers, target));
+        try {
+            String result1 = Arrays.toString(getTwoSumFirstWay(numbers, target));
+            STDOUT.info("\n{}", result1);
+        } catch (NoSolutionException e) {
+            STDOUT.error("\n{}", e.getMessage());
+        }
         String result2 = Arrays.toString(getTwoSumSecondWay(numbers, target));
-        STDOUT.info("\n{}", result1);
         STDOUT.info("\n{}", result2);
     }
 
-    static int[] getTwoSumFirstWay(int[] nums, int target) {
+    static int[] getTwoSumFirstWay(int[] nums, int target) throws NoSolutionException {
 
         int[] output = new int[2];
         //Labels are not commonly used (disadvised)
@@ -30,6 +33,9 @@ public class TwoSum {
         for (int i = 0; i < nums.length; i++) {
             int j;
             for (j = i + 1; j < nums.length; j++) {
+                if ((i == nums.length - 2) && (j == nums.length - 1)) {
+                    throw new NoSolutionException();
+                }
                 if (nums[i] + nums[j] == target) {
                     output = new int[]{i, j};
                     break main_loop;
