@@ -1,5 +1,7 @@
 package pl.bartek_ficek.implement_stack;
 
+import java.util.Arrays;
+
 public class MyStack {
 
     /**
@@ -38,5 +40,14 @@ public class MyStack {
 
     public int peek() {
         return array[top];
+    }
+
+    public int getTop() {
+        return top;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(array);
     }
 }
