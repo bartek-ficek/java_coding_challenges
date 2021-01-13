@@ -13,16 +13,16 @@ public class TwoSum {
 
     public static void main(String[] args) {
 
-        int[] numbers = new int[]{2, 8, 11, 15};
-        int target = 9;
+        int[] numbers = new int[]{11, 7, 12, 3};
+        int target = 14;
         try {
             String result1 = Arrays.toString(getTwoSumFirstWay(numbers, target));
+            String result2 = Arrays.toString(getTwoSumSecondWay(numbers, target));
             STDOUT.info("\n{}", result1);
+            STDOUT.info("\n{}", result2);
         } catch (NoSolutionException e) {
             STDOUT.error("\n{}", e.getMessage());
         }
-        String result2 = Arrays.toString(getTwoSumSecondWay(numbers, target));
-        STDOUT.info("\n{}", result2);
     }
 
     static int[] getTwoSumFirstWay(int[] nums, int target) throws NoSolutionException {
@@ -45,7 +45,7 @@ public class TwoSum {
         return output;
     }
 
-    static int[] getTwoSumSecondWay(int[] nums, int target) {
+    static int[] getTwoSumSecondWay(int[] nums, int target) throws NoSolutionException {
 
         Map<Integer, Integer> checkedNums = new HashMap<>();
 
@@ -55,6 +55,9 @@ public class TwoSum {
                 return new int[]{checkedNums.get(delta), i};
             }
             checkedNums.put(nums[i], i);
+            if (i== nums.length-1) {
+                throw new NoSolutionException();
+            }
         }
         return new int[]{-1, -1};
     }
