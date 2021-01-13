@@ -8,6 +8,7 @@ import java.util.Stack;
 public class MyStackMain {
 
     private static final Logger STDOUT = LoggerFactory.getLogger("CONSOLE_OUT");
+    private static final String DIVISION = "*******************************************************************";
 
     public static void main(String[] args) {
 
@@ -17,53 +18,44 @@ public class MyStackMain {
         myStack.push(1);
         myStack.push(2);
         myStack.push(3);
-        System.out.println("initial MyStack: "+myStack);
-        System.out.println("top: " + myStack.getTop());
-        System.out.println("*******************************************************************");
+        STDOUT.info("\ninitial MyStack: {}", myStack);
+        STDOUT.info("\ntop: {}", myStack.getTop());
+        STDOUT.info("\n" + DIVISION);
 
         int poppedItem1 = myStack.pop();
-        System.out.println("popped item: " + poppedItem1);
-        System.out.println("stack after pop (not changed but field 'top' does): " + myStack);
-        System.out.println("top: " + myStack.getTop());
-        System.out.println("*******************************************************************");
+        STDOUT.info("\npopped item: {}", poppedItem1);
+        STDOUT.info("\nstack after pop (not changed but field 'top' does): {}", myStack);
+        STDOUT.info("\ntop: {}", myStack.getTop());
+        STDOUT.info("\n" + DIVISION);
 
         int poppedItem2 = myStack.pop();
-        System.out.println("popped item: " + poppedItem2);
-        System.out.println("stack after pop (not changed but field 'top' does): " + myStack);
-        System.out.println("top: " + myStack.getTop());
-        System.out.println("*******************************************************************");
+        STDOUT.info("\npopped item: {}", poppedItem2);
+        STDOUT.info("\nstack after pop (not changed but field 'top' does): {}", myStack);
+        STDOUT.info("\ntop: {}", myStack.getTop());
+        STDOUT.info("\n" + DIVISION);
 
         int peekedItem1 = myStack.peek();
-        System.out.println("peeked item: " + peekedItem1);
-        System.out.println("stack after peek not changed: " + myStack);
-        System.out.println("'top' after peek doesn't changed: " + myStack.getTop());
-        System.out.println("*******************************************************************");
+        STDOUT.info("\npeeked item: {}", peekedItem1);
+        STDOUT.info("\nstack after peek not changed: {}", myStack);
+        STDOUT.info("\n'top' after peek doesn't changed: {}", myStack.getTop());
+        STDOUT.info("\n" + DIVISION);
 
         int pushedItem1 = 15;
         myStack.push(pushedItem1);
-        System.out.println("pushed item: " + pushedItem1);
-        System.out.println("stack after push changed: " + myStack);
-        System.out.println("'top' after push changed: " + myStack.getTop());
-        System.out.println("*******************************************************************");
+        STDOUT.info("\npushed item: {}", pushedItem1);
+        STDOUT.info("\nstack after push changed: {}", myStack);
+        STDOUT.info("\n'top' after push changed: {}", myStack.getTop());
+        STDOUT.info("\n" + DIVISION);
     }
 
 
-
-
-
-
-
-
-
-
-
-//    testingOperators don't connected with Implement Stack challenge
+    //    testingOperators don't connected with Implement Stack challenge
     private static void testingOperators() {
 
         int top = 2;
 
         System.out.println("top " + top);
-        System.out.println("top++ " + top++ );
+        System.out.println("top++ " + top++);
         System.out.println("top " + top);
 
         System.out.println("\ntop " + top);
